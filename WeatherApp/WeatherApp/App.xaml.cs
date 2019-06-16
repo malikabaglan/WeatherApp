@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Threading.Tasks;
+using WeatherApp.Services.Navigation;
+using WeatherApp.ViewModels.Base;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,13 +12,23 @@ namespace WeatherApp
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+       
         }
 
-        protected override void OnStart()
+
+
+        private Task InitNavigation()
+        {
+            var navigationService = ViewModelLocator.Resolve<INavigationService>();
+            return navigationService.InitializeAsync();
+        }
+
+        protected async override void OnStart()
         {
             // Handle when your app starts
+            base.OnStart();
+            await InitNavigation();
+            base.OnResume();
         }
 
         protected override void OnSleep()
@@ -23,9 +36,6 @@ namespace WeatherApp
             // Handle when your app sleeps
         }
 
-        protected override void OnResume()
-        {
-            // Handle when your app resumes
-        }
+
     }
 }

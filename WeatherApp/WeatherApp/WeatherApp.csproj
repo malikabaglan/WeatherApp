@@ -14,4 +14,15 @@
     <PackageReference Include="Xamarin.Forms" Version="4.0.0.425677" />
     <PackageReference Include="Xamarin.Essentials" Version="1.0.1" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Models\" />
+    <Folder Include="ViewModels\Base\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Dialog\" />
+    <Folder Include="Services\Navigation\" />
+    <Folder Include="Services\Settings\" />
+    <Folder Include="TinyIoC\" />
+  </ItemGroup>
 </Project>
